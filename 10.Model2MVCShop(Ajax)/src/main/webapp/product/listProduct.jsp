@@ -30,8 +30,8 @@
 
 		$( ".ct_list_pop td:nth-child(3)" ).on("click" , function() {
 			//self.location ="/product/getProduct?prodNo="+$("#prodNo").text().trim();
-			
-			var prodNo = $("#prodNo").text().trim();
+			var prodNo = $(this).find("input").val();
+
 			$.ajax(
 					{
 						url : "/product/json/getProduct/"+prodNo,
@@ -143,8 +143,8 @@
 		<c:set var="i" value="${ i+1 }" />
 		<tr class="ct_list_pop">
 			<td align="center">${ i }</td>
-			<td id="prodNo" style="visibility:hidden;position:absolute;">${ product.prodNo }</td>
-			<td align="left">${ product.prodName }</td>
+			<td></td>
+			<td align="left">${ product.prodName }<input type="hidden" id="prodNo" value=${ product.prodNo }></td>
 			<td></td>
 			<td align="left">${ product.price }</td>
 			<td></td>
